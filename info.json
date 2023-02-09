@@ -1,0 +1,7 @@
+{
+    "author" : ["Rogue"],
+    "install_msg" : "Installed!",
+    "name" : "rogue-cogs",
+    "short" : "Cogs made by the Rogue and often with help from the community",
+    "description" : "A collection of cogs made by Rogue"
+}
