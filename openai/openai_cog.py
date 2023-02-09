@@ -1,6 +1,7 @@
 import requests
 import json
 import discord
+from redbot.core import commands
 from discord.ext import commands
 
 class OpenAICog(commands.Cog):
