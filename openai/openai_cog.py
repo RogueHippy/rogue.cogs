@@ -34,6 +34,3 @@ class OpenAICog(commands.Cog):
     async def openai_key(self, ctx, key: str):
         self.api_key = key
         await ctx.send(f"OpenAI API key set to `{key}`")
-
-def setup(bot):
-    bot.add_cog(OpenAICog(bot))
