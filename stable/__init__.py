@@ -1,4 +1,4 @@
-from .image_generation import ImageGeneration
+from .image_generator import ImageGenerator
 
 def setup(bot):
-    bot.add_cog(ImageGeneration(bot))
+    bot.add_cog(ImageGenerator(bot))
