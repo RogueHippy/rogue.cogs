@@ -1,0 +1,8 @@
+{
+    "name": "OpenAI Cog",
+    "author": "OpenAI",
+    "version": "1.0.0",
+    "description": "A cog for Discord Red that allows users to receive a response from the OpenAI API using the text-davinci-003 model.",
+    "short": "A cog for Discord Red that uses OpenAI API.",
+    "dependencies": []
+}
