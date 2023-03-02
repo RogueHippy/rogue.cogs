@@ -7,4 +7,4 @@ from .openai import openai
 
 
 async def setup(bot: Red) -> None:
-    bot.add_cog(openai(bot))
+    bot.add_cog(chatGPT(bot))
