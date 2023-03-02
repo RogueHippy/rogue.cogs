@@ -9,7 +9,7 @@ import asyncio
 import openai
 import os
 
-class openai(commands.Cog):
+class chatGPT(commands.Cog):
   def __init__(self, bot: Red) -> None:
     self.prompt = ""
     self.response = ""
