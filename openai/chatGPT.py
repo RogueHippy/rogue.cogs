@@ -15,7 +15,7 @@ class chatGPT(commands.Cog):
     self.log = logging.getLogger('red.tpun.chatGPT')
     self.config = Config.get_conf(
         self,
-        identifier=365398642334498816
+        identifier=365398642334498820
     )
     self.user_threads = {}
     defaultGlobalConfig = {
