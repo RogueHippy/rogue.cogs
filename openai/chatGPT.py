@@ -1,6 +1,7 @@
 from redbot.core import checks
 from redbot.core.bot import Red
 from redbot.core.config import Config
+from discord.ext import commands
 import discord
 import logging
 import asyncio
@@ -15,7 +16,7 @@ class chatGPT(commands.Cog):
     self.log = logging.getLogger('red.tpun.chatGPT')
     self.config = Config.get_conf(
         self,
-        identifier=365398642334498820
+        identifier=365398642334498816
     )
     self.user_threads = {}
     defaultGlobalConfig = {
