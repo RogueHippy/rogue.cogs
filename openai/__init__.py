@@ -1,4 +1,5 @@
 from redbot.core.bot import Red
+from pathlib import Path
 
 from .chatGPT import chatGPT
 
