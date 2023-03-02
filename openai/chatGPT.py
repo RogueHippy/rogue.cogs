@@ -216,7 +216,8 @@ class chatGPT(commands.Cog):
         "text-babbage-001": "text-babbage-001",
         "text-curie-001": "text-curie-001",
         "text-davinci-002": "text-davinci-002",
-        "text-davinci-003": "text-davinci-003"
+        "text-davinci-003": "text-davinci-003",
+        "gpt-3.5-turbo-0301": "gpt-3.5-turbo-0301"
     }
     if model in model_map:
         await self.config.model.set(model_map[model])
@@ -242,7 +243,8 @@ class chatGPT(commands.Cog):
         "text-babbage-001": (0, 2048),
         "text-curie-001": (0, 2048),
         "text-davinci-002": (0, 4000),
-        "text-davinci-003": (0, 4000)
+        "text-davinci-003": (0, 4000),
+        "gpt-3.5-turbo-0301": (0, 4000)
     }
 
     if model in model_limits and model_limits[model][0] < tokenLimit <= model_limits[model][1]:
