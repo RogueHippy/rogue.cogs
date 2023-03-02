@@ -1,0 +1,20 @@
+    "short": "chatGPT",
+    "description": "Communicate with chatGPT",
+    "end_user_data_statement": "This cog does persistently store data or meta-data about users. This is required to keep continuity between users and the bot, it is also used in storing responses >2000 characters to send to the user.",
+    "install_msg": "Congrats",
+    "author": [
+        "~"
+    ],
+    "required_cogs": {},
+    "requirements": ["inflect==6.0.0", "requests", "numpy", "openai"],
+    "tags": [
+        "job",
+        "work",
+        "occupations",
+        "economy",
+        "~"
+    ],
+    "min_bot_version": "3.3.10",
+    "hidden": false,
+    "disabled": false,
+    "type": "COG"
