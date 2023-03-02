@@ -3,6 +3,7 @@ from redbot.core import commands
 from redbot.core import checks
 from redbot.core.bot import Red
 from redbot.core.config import Config
+from pathlib import Path
 import discord
 import logging
 import asyncio
