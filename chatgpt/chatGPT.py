@@ -12,7 +12,7 @@ class chatGPT(commands.Cog):
     self.prompt = ""
     self.response = ""
     self.bot = bot
-    self.log = logging.getLogger('red.tpun.chatGPT')
+    self.log = logging.getLogger('red.rogue.chatGPT')
     self.config = Config.get_conf(
         self,
         identifier=365398642334498816
