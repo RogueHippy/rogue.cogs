@@ -15,7 +15,7 @@ class chatGPT(commands.Cog):
     self.log = logging.getLogger('red.rogue.chatGPT')
     self.config = Config.get_conf(
         self,
-        identifier=365398642334498816
+        identifier=365398642334498815
     )
     self.user_threads = {}
     defaultGlobalConfig = {
