@@ -14,6 +14,7 @@ class chatGPT(commands.Cog):
     self.api_key = data_manager.global_config_register.get("openai", {}).get("api_key")
     openai.api_key = self.api_key
     self.prompt = ""
+    self.user_threads = {}
     self.response = ""
     self.bot = bot
     self.log = logging.getLogger('red.openai.chatGPT')
@@ -35,7 +36,7 @@ class chatGPT(commands.Cog):
 
   async def send_message(self, user_id, message, model, tokenLimit):
     if user_id not in self.user_threads:
-      self.user_threads[user_id] = "" 
+      self.user_threads[user_id] = ""
     self.prompt = self.user_threads[user_id]
     response = openai.Completion.create(
       engine=model,
@@ -44,9 +45,9 @@ class chatGPT(commands.Cog):
       n=1,
       stop=None,
       temperature=0.5
-  )
-  self.user_threads[user_id] = response.choices[0].text
-  return self.user_threads[user_id]
+    )
+    self.user_threads[user_id] = response.choices[0].text
+    return self.user_threads[user_id]
 
 
 
