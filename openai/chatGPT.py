@@ -35,7 +35,7 @@ class chatGPT(commands.Cog):
     if user_id not in self.user_threads:
       self.user_threads[user_id] = ""
     self.prompt = self.user_threads[user_id]
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
       engine=model,
       messages=[
         {"role": "user", "content": self.prompt}
