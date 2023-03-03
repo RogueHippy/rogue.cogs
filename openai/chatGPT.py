@@ -14,10 +14,10 @@ class chatGPT(commands.Cog):
     self.prompt = ""
     self.response = ""
     self.bot = bot
-    self.log = logging.getLogger('red.tpun.chatGPT')
+    self.log = logging.getLogger('red.openai.chatGPT')
     self.config = Config.get_conf(
         self,
-        identifier=365398642334498820
+        identifier=36539864233445684
     )
     self.user_threads = {}
     defaultGlobalConfig = {
@@ -202,7 +202,7 @@ class chatGPT(commands.Cog):
   @chatgpt.command(name="model")
   async def model(self, ctx: commands.Context, model: str):
     """
-    Allows the changing of model chatbot is running. Options are: 0-`text-ada-001` 1-`text-babbage-001` 2-`text-curie-001` 3-`text-davinci-002` 4-`text-davinci-003` current-`shows current model`\n\n
+    Allows the changing of model chatbot is running. Options are: 0-`text-ada-001` 1-`text-babbage-001` 2-`text-curie-001` 3-`text-davinci-002` 4-`text-davinci-003` 5-`gpt-3.5-turbo-0301` current-`shows current model`\n\n
 
     For more information on what this means please check out: https://beta.openai.com/docs/models/gpt-3
     """
@@ -212,6 +212,7 @@ class chatGPT(commands.Cog):
         "2": "text-curie-001",
         "3": "text-davinci-002",
         "4": "text-davinci-003",
+        "5": "gpt-3.5-turbo-0301",
         "text-ada-001": "text-ada-001",
         "text-babbage-001": "text-babbage-001",
         "text-curie-001": "text-curie-001",
