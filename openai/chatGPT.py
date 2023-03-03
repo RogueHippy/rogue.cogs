@@ -21,12 +21,12 @@ class chatGPT(commands.Cog):
     )
     self.user_threads = {}
     defaultGlobalConfig = {
-        "model": "text-ada-001",
+        "model": "gpt-3.5-turbo",
         "tokenLimit": 1000
     }
     defaultGuildConfig = {
         "channels": [],
-        "replyRespond": True
+        "replyRespond": False
     }
     self.config.register_global(**defaultGlobalConfig)
     self.config.register_guild(**defaultGuildConfig)
@@ -37,13 +37,15 @@ class chatGPT(commands.Cog):
     self.prompt = self.user_threads[user_id]
     response = openai.Completion.create(
       engine=model,
-      prompt=self.prompt + message,
+      messages=[
+        {"role": "user", "content": self.prompt},
+    ], + message,
       max_tokens=tokenLimit,
       n=1,
       stop=None,
       temperature=0.5
     )
-    self.user_threads[user_id] = response["choices"][0]["text"]
+    self.user_threads[user_id] = response['choices'][0]['message']['content']
     return self.user_threads[user_id]
 
 
@@ -207,17 +209,9 @@ class chatGPT(commands.Cog):
     For more information on what this means please check out: https://beta.openai.com/docs/models/gpt-3
     """
     model_map = {
-        "0": "text-ada-001",
-        "1": "text-babbage-001",
-        "2": "text-curie-001",
-        "3": "text-davinci-002",
-        "4": "text-davinci-003",
-        "5": "gpt-3.5-turbo-0301",
-        "text-ada-001": "text-ada-001",
-        "text-babbage-001": "text-babbage-001",
-        "text-curie-001": "text-curie-001",
-        "text-davinci-002": "text-davinci-002",
-        "text-davinci-003": "text-davinci-003",
+        "0": "gpt-3.5-turbo",
+        "1": "gpt-3.5-turbo-0301",
+        "gpt-3.5-turbo": "gpt-3.5-turbo",
         "gpt-3.5-turbo-0301": "gpt-3.5-turbo-0301"
     }
     if model in model_map:
@@ -240,11 +234,8 @@ class chatGPT(commands.Cog):
     """
     model = await self.config.model()
     model_limits = {
-        "text-ada-001": (0, 2048),
-        "text-babbage-001": (0, 2048),
-        "text-curie-001": (0, 2048),
-        "text-davinci-002": (0, 4000),
-        "text-davinci-003": (0, 4000),
+        
+        "gpt-3.5-turbo": (0, 4000),
         "gpt-3.5-turbo-0301": (0, 4000)
     }
 
