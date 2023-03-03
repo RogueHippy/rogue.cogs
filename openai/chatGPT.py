@@ -11,7 +11,7 @@ import os
 
 class chatGPT(commands.Cog):
   def __init__(self, bot: Red) -> None:
-    self.api_key = data_manager.global_config_register.get("openai", {}).get("api_key")
+    self.api_key = bot.config.get("openai", {}).get("api_key")
     openai.api_key = self.api_key
     self.prompt = ""
     self.user_threads = {}
