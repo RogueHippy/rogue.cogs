@@ -37,7 +37,7 @@ class chatGPT(commands.Cog):
       self.user_threads[user_id] = ""
     self.messages = self.user_threads[user_id]  
     #self.prompt = self.user_threads[user_id]
-    response = openai.Completion.create(
+    response = openai.Completions.create(
       engine=model,
       messages=self.messages + message,
       #prompt=self.prompt + message,
