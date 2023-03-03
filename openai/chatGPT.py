@@ -11,8 +11,7 @@ import os
 
 class chatGPT(commands.Cog):
   def __init__(self, bot: Red) -> None:
-    self.messages = ""
-     #self.prompt = ""
+    self.prompt = ""
     self.response = ""
     self.bot = bot
     self.log = logging.getLogger('red.openai.chatGPT')
@@ -34,13 +33,11 @@ class chatGPT(commands.Cog):
 
   async def send_message(self, user_id, message, model, tokenLimit):
     if user_id not in self.user_threads:
-      self.user_threads[user_id] = ""
-    self.messages = self.user_threads[user_id]  
-    #self.prompt = self.user_threads[user_id]
-    response = openai.Completions.create(
+      self.user_threads[user_id] = "" 
+    self.prompt = self.user_threads[user_id]
+    response = openai.Completion.create(
       engine=model,
-      messages=self.messages + message,
-      #prompt=self.prompt + message,
+      prompt=self.prompt + message,
       max_tokens=tokenLimit,
       n=1,
       stop=None,
