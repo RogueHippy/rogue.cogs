@@ -11,10 +11,7 @@ import os
 
 class chatGPT(commands.Cog):
   def __init__(self, bot: Red) -> None:
-    self.api_key = data_manager.get_global("openai", {}).get("api_key")
-    openai.api_key = self.api_key
     self.prompt = ""
-    self.user_threads = {}
     self.response = ""
     self.bot = bot
     self.log = logging.getLogger('red.openai.chatGPT')
@@ -24,9 +21,9 @@ class chatGPT(commands.Cog):
     )
     self.user_threads = {}
     defaultGlobalConfig = {
-            "model": "davinci",
-            "tokenLimit": 1000,
-     }
+        "model": "text-ada-001",
+        "tokenLimit": 1000
+    }
     defaultGuildConfig = {
         "channels": [],
         "replyRespond": True
@@ -46,7 +43,7 @@ class chatGPT(commands.Cog):
       stop=None,
       temperature=0.5
     )
-    self.user_threads[user_id] = response.choices[0].text
+    self.user_threads[user_id] = response["choices"][0]["text"]
     return self.user_threads[user_id]
 
 
