@@ -38,7 +38,7 @@ class chatGPT(commands.Cog):
     response = openai.Completion.create(
       engine=model,
       messages=[
-        {"role": "user", "content": self.prompt},
+        {"role": "user", "content": self.prompt}
     ], + message,
       max_tokens=tokenLimit,
       n=1,
