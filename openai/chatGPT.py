@@ -1,5 +1,7 @@
-import os
+import pkg_resources
+pkg_resources.require("openai==0.27.0")
 import openai
+import os
 import discord
 import logging
 import asyncio
@@ -18,7 +20,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499907
+            identifier=365398642334499908
         )
         self.user_threads = {}
         defaultGlobalConfig = {
