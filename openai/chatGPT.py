@@ -1,4 +1,5 @@
-import OpenAI
+from promptify import openai
+from promptify import prompter
 import os
 import discord
 #import openai
