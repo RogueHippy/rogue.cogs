@@ -1,3 +1,4 @@
+import promptify
 from promptify import openai
 from promptify import prompter
 import os
