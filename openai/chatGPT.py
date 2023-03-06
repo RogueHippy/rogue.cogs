@@ -18,7 +18,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499904
+            identifier=365398642334499905
         )
         self.user_threads = {}
         defaultGlobalConfig = {
@@ -42,9 +42,8 @@ class chatGPT(commands.Cog):
             ],
             #prompt=self.prompt + message,
             max_tokens=tokenLimit,
-            n=1,
             stop=None,
-            temperature=0.7
+            temperature=0.7,
         )
         self.user_threads[user_id] = response["choices"][0]["text"]
         return self.user_threads[user_id]
