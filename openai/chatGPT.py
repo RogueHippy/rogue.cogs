@@ -1,13 +1,13 @@
 import os
 import openai
+import discord
+import logging
+import asyncio
 from redbot.core import data_manager
 from redbot.core import commands
 from redbot.core import checks
 from redbot.core.bot import Red
 from redbot.core.config import Config
-import discord
-import logging
-import asyncio
 
 
 class chatGPT(commands.Cog):
@@ -18,7 +18,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499906
+            identifier=365398642334499907
         )
         self.user_threads = {}
         defaultGlobalConfig = {
@@ -54,7 +54,7 @@ class chatGPT(commands.Cog):
                 model = await self.config.model()
                 tokenLimit = await self.config.tokenLimit()
                 messages = [
-                    {"role": "system", "content": self.prompt},
+                    {"role": "system", "content": query},
                 ]
                 #self.log.info("Sending query: `" + query + "` to chatGPT. With model: " + model)
                 chatGPTKey = await self.bot.get_shared_api_tokens("openai")
