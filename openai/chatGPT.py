@@ -54,7 +54,8 @@ class chatGPT(commands.Cog):
             try:
                 model = await self.config.model()
                 tokenLimit = await self.config.tokenLimit()
-                self.log.info("Sending query: `" + query + "` to chatGPT. With model: " + model)
+                self.log.info{"role": "user", "content": query}
+                #self.log.info("Sending query: `" + query + "` to chatGPT. With model: " + model)
                 chatGPTKey = await self.bot.get_shared_api_tokens("openai")
                 if chatGPTKey.get("api_key") is None:
                     self.log.error("No api key set.")
