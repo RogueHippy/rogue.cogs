@@ -1,3 +1,5 @@
+import os
+import openai
 from redbot.core import data_manager
 from redbot.core import commands
 from redbot.core import checks
@@ -6,8 +8,6 @@ from redbot.core.config import Config
 import discord
 import logging
 import asyncio
-import openai
-import os
 
 
 class chatGPT(commands.Cog):
@@ -18,7 +18,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499905
+            identifier=365398642334499906
         )
         self.user_threads = {}
         defaultGlobalConfig = {
