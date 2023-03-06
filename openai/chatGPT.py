@@ -1,8 +1,6 @@
-import pkg_resources
-pkg_resources.require("openai==0.27.0")
-import openai
 import os
 import discord
+import openai
 import logging
 import asyncio
 from redbot.core import data_manager
