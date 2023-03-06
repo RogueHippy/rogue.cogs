@@ -18,7 +18,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499903
+            identifier=365398642334499904
         )
         self.user_threads = {}
         defaultGlobalConfig = {
@@ -35,7 +35,7 @@ class chatGPT(commands.Cog):
         if user_id not in self.user_threads:
             self.user_threads[user_id] = ""
         self.prompt = self.user_threads[user_id]
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": self.prompt},
