@@ -1,6 +1,7 @@
+import OpenAI
 import os
 import discord
-import openai
+#import openai
 import logging
 import asyncio
 from redbot.core import data_manager
