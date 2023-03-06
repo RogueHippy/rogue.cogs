@@ -1,9 +1,7 @@
-import promptify
-from promptify import openai
-from promptify import prompter
+
 import os
 import discord
-#import openai
+import openai
 import logging
 import asyncio
 from redbot.core import data_manager
