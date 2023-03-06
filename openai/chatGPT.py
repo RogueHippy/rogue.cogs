@@ -18,7 +18,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499902
+            identifier=365398642334499903
         )
         self.user_threads = {}
         defaultGlobalConfig = {
@@ -38,7 +38,7 @@ class chatGPT(commands.Cog):
         response = openai.Completion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": self.prompt + message},
+                {"role": "system", "content": self.prompt},
             ],
             #prompt=self.prompt + message,
             max_tokens=tokenLimit,
@@ -55,7 +55,7 @@ class chatGPT(commands.Cog):
                 model = await self.config.model()
                 tokenLimit = await self.config.tokenLimit()
                 messages = [
-                    {"role": "system", "content": self.prompt + message},
+                    {"role": "system", "content": self.prompt},
                 ]
                 #self.log.info("Sending query: `" + query + "` to chatGPT. With model: " + model)
                 chatGPTKey = await self.bot.get_shared_api_tokens("openai")
