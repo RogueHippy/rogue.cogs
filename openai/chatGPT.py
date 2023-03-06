@@ -18,7 +18,7 @@ class chatGPT(commands.Cog):
         self.log = logging.getLogger('red.rogue.chatGPT')
         self.config = Config.get_conf(
             self,
-            identifier=365398642334499901
+            identifier=365398642334499902
         )
         self.user_threads = {}
         defaultGlobalConfig = {
@@ -54,7 +54,9 @@ class chatGPT(commands.Cog):
             try:
                 model = await self.config.model()
                 tokenLimit = await self.config.tokenLimit()
-                self.log.info{"role": "user", "content": query}
+                messages = [
+                    {"role": "system", "content": self.prompt + message},
+                ]
                 #self.log.info("Sending query: `" + query + "` to chatGPT. With model: " + model)
                 chatGPTKey = await self.bot.get_shared_api_tokens("openai")
                 if chatGPTKey.get("api_key") is None:
