@@ -1,8 +1,8 @@
 import openai
 from redbot.core import commands
 
-chatGPTKey = self.bot.get_shared_api_tokens("openai")
-openai.api_key = chatGPTKey.get("api_key")
+gpt3Key = await self.bot.get_shared_api_tokens("openai")
+openai.api_key = gpt3Key.get("api_key")
 
 class GPT3(commands.Cog):
     def __init__(self, bot):
