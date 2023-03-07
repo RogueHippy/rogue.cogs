@@ -220,16 +220,10 @@ class chatGPT(commands.Cog):
         For more information on what this means please check out: https://beta.openai.com/docs/models/gpt-3
         """
         model_map = {
-            "0": "text-ada-001",
-            "1": "text-babbage-001",
-            "2": "text-curie-001",
-            "3": "text-davinci-002",
-            "4": "text-davinci-003",
-            "text-ada-001": "text-ada-001",
-            "text-babbage-001": "text-babbage-001",
-            "text-curie-001": "text-curie-001",
-            "text-davinci-002": "text-davinci-002",
-            "text-davinci-003": "text-davinci-003"
+            "0": "gpt-3.5-turbo",
+            "1": "gpt-3.5-turbo-0301",
+            "gpt-3.5-turbo": "gpt-3.5-turbo",
+            "gpt-3.5-turbo-0301": "gpt-3.5-turbo-0301"
         }
         if model in model_map:
             await self.config.model.set(model_map[model])
@@ -251,11 +245,8 @@ class chatGPT(commands.Cog):
         """
         model = await self.config.model()
         model_limits = {
-            "text-ada-001": (0, 2048),
-            "text-babbage-001": (0, 2048),
-            "text-curie-001": (0, 2048),
-            "text-davinci-002": (0, 4000),
-            "text-davinci-003": (0, 4000)
+            "gpt-3.5-turbo": (0, 2500),
+            "gpt-3.5-turbo": (0, 2500)
         }
 
         if model in model_limits and model_limits[model][0] < tokenLimit <= model_limits[model][1]:
