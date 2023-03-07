@@ -53,7 +53,7 @@ class chatGPT(commands.Cog):
             stop=None,
             temperature=0.7,
         )
-        self.user_threads[user_id] = response["choices"][0]["text"]
+        self.user_threads[user_id] = response["choices"][0][""]
         return self.user_threads[user_id]
 
     async def send_chat(self, ctx: commands.Context, query: str):
