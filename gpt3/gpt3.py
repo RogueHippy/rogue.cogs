@@ -1,7 +1,7 @@
 import openai
 from redbot.core import commands
 
-gpt3Key = await self.bot.get_shared_api_tokens("openai")
+gpt3Key = ("openai")
 openai.api_key = gpt3Key.get("api_key")
 
 class GPT3(commands.Cog):
