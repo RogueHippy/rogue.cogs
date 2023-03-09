@@ -1,10 +1,7 @@
-from redbot.core.bot import Red
-
-from .chatGPT import chatGPT
-
-#with open(Path(__file__).parent / "info.json") as fp:
-#    __red_end_user_data_statement__ = json.load(fp)["end_user_data_statement"]
+# This init is required for each cog.
+# Import your main class from the cog's folder.
+from .chatgpt import ChatGPT
 
 
-async def setup(bot: Red) -> None:
-    bot.add_cog(chatGPT(bot))
+def setup(bot):
+    bot.add_cog(ChatGPT(bot))
