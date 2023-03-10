@@ -54,26 +54,6 @@ class ChatGPT(commands.Cog):
                     await message.reply(chunk)
                 
 
-            # If user mentions the bot or replies to the bot
-            if message.reference and message.reference.resolved.author == self.bot.user or self.bot.user in message.mentions:
-                async with message.channel.typing():
-
-                    # IMAGE GENERATION
-                    # Check if the message matches the regex pattern "generate an image of"
-                    match = re.search(r"generate an image of (.*)", message.content, re.IGNORECASE)
-                    if match:
-                        # Get the input from the message
-                        input_text = match.group(1)
-                        await generate_image(input_text, message)
-
-                    # TEXT GENERATION
-                    else:
-                        # Remove all instances of the bot's user mention from the message content
-                        message.content = message.content.replace(f"<@{self.bot.user.id}>", "")
-
-                        prompt = (f"You are {self.bot.user.name}, a member of the Discord server {message.guild.name}. Reply to this message from {message.author.nick if message.author.nick else message.author.name}: {message.content}\n")
-                        await generate_davinci_response(prompt,message)
-
         except Exception as e:
             await message.channel.send(f"An error occurred: {e}")
 
