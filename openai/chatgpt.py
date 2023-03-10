@@ -25,59 +25,6 @@ class ChatGPT(commands.Cog):
         if service_name == "openai":
             openai.api_key = api_tokens["api_key"]
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        try: 
-            if message.author == self.bot.user or message.author.bot:
-                return
-
-            # Use Dall-E to generate an image
-            async def generate_image(input_text, message):
-                prompt = f"{input_text}\n"
-                response = openai.Image.create(model="image-alpha-001", prompt=prompt)
-                image_url = response["data"][0]["url"]
-                await message.channel.send(image_url)
-
-            async def generate_davinci_response(prompt, message):
-                completions = openai.Completion.create(
-                    engine="text-davinci-003",
-                    prompt=prompt,
-                    max_tokens=1024,
-                    n=1,
-                    stop=None,
-                    temperature=1.0,
-                )
-                response = completions.choices[0].text
-                chunk_size = 2000
-                chunks = [response[i : i + chunk_size] for i in range(0, len(response), chunk_size)]
-                for chunk in chunks:
-                    await message.reply(chunk)
-                
-
-            # If user mentions the bot or replies to the bot
-            if message.reference and message.reference.resolved.author == self.bot.user or self.bot.user in message.mentions:
-                async with message.channel.typing():
-
-                    # IMAGE GENERATION
-                    # Check if the message matches the regex pattern "generate an image of"
-                    match = re.search(r"generate an image of (.*)", message.content, re.IGNORECASE)
-                    if match:
-                        # Get the input from the message
-                        input_text = match.group(1)
-                        await generate_image(input_text, message)
-
-                    # TEXT GENERATION
-                    else:
-                        # Remove all instances of the bot's user mention from the message content
-                        message.content = message.content.replace(f"<@{self.bot.user.id}>", "")
-
-                        prompt = (f"You are {self.bot.user.name}, a member of the Discord server {message.guild.name}. Reply to this message from {message.author.nick if message.author.nick else message.author.name}: {message.content}\n")
-                        await generate_davinci_response(prompt,message)
-
-        except Exception as e:
-            await message.channel.send(f"An error occurred: {e}")
-
-
     @commands.group()
     async def chatgpt(self, ctx):
         # This command has no implementation, but it's needed as the parent command
