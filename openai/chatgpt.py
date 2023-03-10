@@ -25,37 +25,6 @@ class ChatGPT(commands.Cog):
         if service_name == "openai":
             openai.api_key = api_tokens["api_key"]
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        try: 
-            if message.author == self.bot.user or message.author.bot:
-                return
-
-            # Use Dall-E to generate an image
-            async def generate_image(input_text, message):
-                prompt = f"{input_text}\n"
-                response = openai.Image.create(model="image-alpha-001", prompt=prompt)
-                image_url = response["data"][0]["url"]
-                await message.channel.send(image_url)
-
-            async def generate_davinci_response(prompt, message):
-                completions = openai.Completion.create(
-                    engine="text-davinci-003",
-                    prompt=prompt,
-                    max_tokens=1024,
-                    n=1,
-                    stop=None,
-                    temperature=1.0,
-                )
-                response = completions.choices[0].text
-                chunk_size = 2000
-                chunks = [response[i : i + chunk_size] for i in range(0, len(response), chunk_size)]
-                for chunk in chunks:
-                    await message.reply(chunk)
-
-        except Exception as e:
-            await message.channel.send(f"An error occurred: {e}")
-
 
     @commands.group()
     async def chatgpt(self, ctx):
