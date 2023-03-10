@@ -6,7 +6,7 @@ class ChatGPT(commands.Cog):
     """Talk to your bot with ChatGPT!"""
     def __init__(self, bot):
         self.bot = bot
-        self.config = Config.get_conf(self, identifier=384374842, force_registration=True)
+        self.config = Config.get_conf(self, identifier=384374843, force_registration=True)
         
         # Register the api_key and model_engine value in the Config
         self._api_key = None
