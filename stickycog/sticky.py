@@ -32,7 +32,7 @@ UNIQUE_ID = 0x6AFE8000
 class Sticky(commands.Cog):
     """Sticky messages to your channels."""
 
-    STICKY_DELAY = 60
+    STICKY_DELAY = 1000
 
     def __init__(self, bot: Red):
         self.bot = bot
