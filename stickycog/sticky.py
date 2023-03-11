@@ -201,7 +201,7 @@ class Sticky(commands.Cog):
                 utcnow = datetime.now(timezone.utc)
 
             time_since = utcnow - last_message.created_at
-            time_to_wait = self.REPOST_COOLDOWN - time_since.total_seconds()
+            #time_to_wait = self.REPOST_COOLDOWN - time_since.total_seconds()
             time_to_wait = self.REPOST_COOLDOWN
             if time_to_wait > 0:
                 await asyncio.sleep(time_to_wait)
