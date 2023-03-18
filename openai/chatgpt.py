@@ -2,6 +2,8 @@ import openai
 from redbot.core import commands, Config
 import re
 
+client = discord.Client()
+
 class ChatGPT(commands.Cog):
     """Talk to your bot with ChatGPT!"""
     def __init__(self, bot):
