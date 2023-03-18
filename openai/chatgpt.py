@@ -1,6 +1,7 @@
 import openai
 from redbot.core import commands, Config
 import re
+import discord
 
 client = discord.Client()
 
