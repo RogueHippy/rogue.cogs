@@ -1,0 +1,17 @@
+{
+    "author": [
+      "T14D3"
+    ],
+    "description": "Allows you to send RCON commands, right from within discord",
+    "hidden": false,
+    "install_msg": "RedCon has been loaded.",
+    "short": "RedCon",
+    "end_user_data_statement": "This cog does not store end user data.",
+    "min_bot_version": "3.5.0",
+    "requirements": [
+        "rcon"
+    ],
+    "tags": [
+      "rcon", "tools", "utility"
+    ]
+  }
