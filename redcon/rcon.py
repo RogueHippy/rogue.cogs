@@ -24,16 +24,16 @@ class RedCon(commands.Cog):
 class InputModal(discord.ui.Modal, title='Connection details'):
     ip = discord.ui.TextInput(
         label='IP',
-        placeholder='Enter IP address',
+        placeholder='45.35.136.204',
     )
     port = discord.ui.TextInput(
         label='Port',
-        placeholder='Enter remote port',
+        placeholder='29316',
     )
     password = discord.ui.TextInput(
         label='Password',
-        placeholder='Enter password',
-        required=False,
+        placeholder='I9xuPRrX',
+        required=True,
     )
     command = discord.ui.TextInput(
         label='Command',
