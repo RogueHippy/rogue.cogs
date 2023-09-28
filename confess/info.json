@@ -1,9 +1,13 @@
 {
-  "author" : ["Jintaku"],
-  "bot_version": [3,0,0],
-  "install_msg" : "Let your users confess their terrible terrible crimes in secrecy!",
-  "short" : "Confess secretly.",
-  "description" : "Confess in a confession room to repent your crimes.",
-  "tags" : ["confession", "crime", "secret"],
-  "hidden" : false
+    "name": "project_zomboid_restart",
+    "description": "Restart Project Zomboid server using RCON commands.",
+    "author": "RogueGPT",
+    "version": "0.0.1",
+    "install_msg": [
+        "This cog requires additional setup.",
+        "Please refer to the cog's documentation for configuration instructions."
+    ],
+    "requirements": [
+        "RCON access to your Project Zomboid server"
+    ]
 }
