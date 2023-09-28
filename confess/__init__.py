@@ -1,6 +1,5 @@
-from .confession import Confession
-
+# project_zomboid_restart/__init__.py
+from .project_zomboid_restart import ProjectZomboidRestart
 
 def setup(bot):
-    n = Confession()
-    bot.add_cog(n)
+    bot.add_cog(ProjectZomboidRestart(bot))
